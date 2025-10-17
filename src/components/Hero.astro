@@ -1,0 +1,104 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/profile.png";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="center-container">
+  <Image
+    src={heroImage}
+    alt="Profile Picture"
+    class="hero-image"
+    format="avif"
+    loading="eager"
+  />
+  <h1 class="hero-title" aria-label="Hi! I’m Emily">Hi! I’m Emily ✌🏻</h1>
+  <p class="hero-subtitle">UI/UX Designer based in Moscow, Russia</p>
+
+  <p class="description">
+    I specialize in creating intuitive user experiences and visually appealing
+    interfaces, with a focus on user-centered design.
+  </p>
+
+  <div class="call-to-actions">
+    <a href="#" class="contact-btn">Hire Me</a>
+    <a href="#" class="download-btn">Download CV <Icon name={"download"} /></a>
+  </div>
+</div>
+
+<style>
+  .center-container {
+    margin-top: 200px;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    place-items: center;
+    padding: 2rem;
+    /* max-width: 26.75rem; */
+  }
+
+  .hero-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin: 0.5rem 0;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.8rem, 4vw, 1.25rem);
+    color: var(--subtitle);
+    max-width: 428px;
+    font-weight: 500;
+  }
+
+  .description {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    color: var(--text);
+    max-width: 428px;
+    margin-top: 1rem;
+  }
+
+  .call-to-actions {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .call-to-actions a {
+    text-decoration: none;
+  }
+
+  .contact-btn {
+    padding: 0.75rem 1.5rem;
+
+    background-color: var(--foreground);
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-size: 0.875em;
+    transition: filter 0.3s ease;
+  }
+
+  .download-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875em;
+    color: var(--foreground);
+    font-weight: 600;
+  }
+
+  .contact-btn:hover {
+    filter: brightness(0.8);
+  }
+</style>

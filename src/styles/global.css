@@ -2,6 +2,7 @@
   --foreground: hsl(73, 90%, 4%);
   --background: hsl(88, 100%, 97%);
   --primary: hsl(81, 99%, 61%);
+  --subtitle: hsl(0, 0%, 40%);
 }
 
 *,
