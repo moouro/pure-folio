@@ -1,0 +1,165 @@
+---
+import { Icon } from "astro-icon/components";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<div class="container">
+  <nav>
+    <div class="mail">
+      <Icon name="mail" size="24" />
+      <p>hanaemily@gmail.com</p>
+    </div>
+
+    <button
+      class="menu-toggle"
+      aria-label="Abrir menu de navegação"
+      aria-expanded="false"
+      aria-controls="nav-links"
+    >
+      <Icon name="menu" size="24" class="icon-burger" />
+      <Icon name="close" size="24" class="icon-close" />
+    </button>
+
+    <ul class="nav-links">
+      {
+        links.map(({ href, label }) => (
+          <li class=" nav-item">
+            <a href={href}>
+              <slot />
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>
+
+<style>
+  nav {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 100;
+  }
+  .menu-toggle .icon-close {
+    display: none;
+  }
+
+  .menu-toggle[aria-expanded="true"] .icon-burger {
+    display: none;
+  }
+
+  .menu-toggle[aria-expanded="true"] .icon-close {
+    display: block;
+  }
+
+  .mail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 16px;
+  }
+
+  .nav-item a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Mobile: tablets e smartphones */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      flex-direction: column;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      min-width: 200px;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s;
+    }
+
+    .nav-links.is-open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .nav-item a {
+      padding: 12px 16px;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Seleciona os elementos
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  // Função para alternar o menu
+  function toggleMenu() {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+
+    // Atualiza os atributos de acessibilidade
+    menuToggle.setAttribute("aria-expanded", !isOpen);
+
+    // Adiciona/remove a classe que controla a visibilidade
+    navLinks.classList.toggle("is-open");
+  }
+
+  // Event listener no botão
+  menuToggle?.addEventListener("click", toggleMenu);
+
+  // Fecha o menu ao clicar em um link (opcional, mas melhora UX)
+  const navItems = navLinks.querySelectorAll("a");
+  navItems.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (navLinks.classList.contains("is-open")) {
+        toggleMenu();
+      }
+    });
+  });
+
+  // Fecha o menu ao clicar fora dele
+  document.addEventListener("click", (event) => {
+    const isClickInside =
+      menuToggle.contains(event.target) || navLinks.contains(event.target);
+
+    if (!isClickInside && navLinks.classList.contains("is-open")) {
+      toggleMenu();
+    }
+  });
+</script>

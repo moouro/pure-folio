@@ -1,5 +1,5 @@
 :root {
-  --foreground: hsl(75, 89%, 4%);
+  --foreground: hsl(73, 90%, 4%);
   --background: hsl(88, 100%, 97%);
   --primary: hsl(81, 99%, 61%);
 }
@@ -37,7 +37,6 @@ ol[role="list"] {
 }
 
 body {
-  min-height: 100vh;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
@@ -46,8 +45,7 @@ body {
   font-weight: normal;
   color: var(--foreground);
   background-color: var(--background);
-  scroll-behavior: smooth;
-  font-size: 1rem;
+  font-size: 1.125rem;
 }
 
 h1,
@@ -92,4 +90,14 @@ textarea:not([rows]) {
 
 :target {
   scroll-margin-block: 5ex;
+}
+
+.main-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+.container {
+  width: min(100% - 2rem, 170.75ch);
+  margin-inline: auto;
 }
