@@ -3,6 +3,14 @@
   --background: hsl(88, 100%, 97%);
   --primary: hsl(81, 99%, 61%);
   --subtitle: hsl(0, 0%, 40%);
+  --spacing-section: 80px;
+  --spacing-grid: 40px;
+  --border-radius: 12px;
+
+  --color-text-primary: hsl(0, 0%, 10%);
+  --color-text-secondary: hsl(0, 0%, 40%);
+  --color-accent: hsl(43, 96%, 56%);
+  --color-bg: hsl(0, 0%, 98%);
 }
 
 *,

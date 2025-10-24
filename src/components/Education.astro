@@ -1,0 +1,198 @@
+---
+import Label from "./Label.astro";
+const education = [
+  {
+    institution: "Novosibirsk State University (NSU)",
+    period: "4 years (2019-2022)",
+    degree: "Creative Arts and Design",
+    description:
+      "Studying Creative Arts and Design encourages innovative thinking and equips students with the skills to create impactful visual stories.",
+  },
+  {
+    institution: "Oxim Studio Internship",
+    period: "3 Months (2021)",
+    degree: "Web Designer",
+    description:
+      "Embarking on the role of a Web Designer through an Internship is an exciting step in my professional journey.",
+  },
+  {
+    institution: "Freelancer",
+    period: "(Now)",
+    degree: "UI/UX Designer",
+    description:
+      "I am eager to tackle real-world projects, utilize industry-standard tools, and gain valuable feedback to enhance my design skills.",
+  },
+];
+---
+
+<!-- Section ocupa largura total (para o background) -->
+<section class="education">
+  <!-- Container centraliza o conteúdo -->
+  <div class="container">
+    <header class="education-header">
+      <Label label="Education" />
+      <h2 class="section-title">My Education</h2>
+    </header>
+
+    <div class="education-grid">
+      {
+        education.map((item) => (
+          <article class="education-item">
+            <div class="education-info">
+              <h3 class="institution">{item.institution}</h3>
+              <p class="period">{item.period}</p>
+            </div>
+
+            <div class="education-content">
+              <h4 class="degree">{item.degree}</h4>
+              <p class="description">{item.description}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Section ocupa 100% da largura com background */
+  .education {
+    padding-block: var(--spacing-section);
+    background-color: var(--color-bg);
+    width: 100%;
+  }
+
+  /* Header da seção */
+  .education-header {
+    margin-block-end: 48px;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  /* Grid moderno com CSS Grid */
+  .education-grid {
+    display: grid;
+    gap: var(--spacing-grid);
+    grid-template-columns: 1fr;
+  }
+
+  /* Card individual */
+  .education-item {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 32px;
+    padding: 32px;
+    background: #fff;
+    border-radius: var(--border-radius);
+    position: relative;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  /* Efeito hover moderno */
+  .education-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Bolinha amarela decorativa */
+  .education-item::before {
+    content: "";
+    position: absolute;
+    left: 32px;
+    top: 40px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+  }
+
+  /* Lado esquerdo - Info */
+  .education-info {
+    padding-inline-start: 24px;
+  }
+
+  .institution {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+  }
+
+  .period {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* Lado direito - Conteúdo */
+  .education-content {
+    padding-inline-start: 24px;
+    border-inline-start: 1px solid #e5e5e5;
+  }
+
+  .degree {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 12px 0;
+  }
+
+  .degree::before {
+    content: "•";
+    color: var(--color-accent);
+    font-weight: bold;
+    margin-inline-end: 8px;
+  }
+
+  .description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* Responsivo - Mobile First */
+  @media (max-width: 768px) {
+    .education {
+      --spacing-section: 60px;
+      --spacing-grid: 24px;
+    }
+
+    .education-item {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 24px;
+    }
+
+    .education-item::before {
+      left: 24px;
+      top: 32px;
+    }
+
+    .education-content {
+      padding-inline-start: 0;
+      border-inline-start: none;
+      border-block-start: 1px solid #e5e5e5;
+      padding-block-start: 20px;
+    }
+
+    .education-info {
+      padding-inline-start: 20px;
+    }
+  }
+
+  /* Tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .education-item {
+      grid-template-columns: 1fr 1.2fr;
+    }
+  }
+</style>
