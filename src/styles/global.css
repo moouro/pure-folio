@@ -6,11 +6,6 @@
   --spacing-section: 80px;
   --spacing-grid: 40px;
   --border-radius: 12px;
-
-  --color-text-primary: hsl(0, 0%, 10%);
-  --color-text-secondary: hsl(0, 0%, 40%);
-  --color-accent: hsl(43, 96%, 56%);
-  --color-bg: hsl(0, 0%, 98%);
 }
 
 *,
@@ -107,6 +102,6 @@ textarea:not([rows]) {
   min-height: 100vh;
 }
 .container {
-  width: min(100% - 2rem, 170.75ch);
+  width: min(100% - 2rem, 140ch);
   margin-inline: auto;
 }

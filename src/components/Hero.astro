@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import heroImage from "../assets/profile.png";
 import { Icon } from "astro-icon/components";
+import Label from "./Label.astro";
 ---
 
 <section class="center-container">
@@ -13,7 +14,7 @@ import { Icon } from "astro-icon/components";
     loading="eager"
   />
   <h1 class="hero-title" aria-label="Hi! I’m Emily">Hi! I’m Emily ✌🏻</h1>
-  <p class="hero-subtitle">UI/UX Designer based in Moscow, Russia</p>
+  <Label label="UI/UX Designer based in Moscow, Russia" class="label-text" />
 
   <p class="description">
     I specialize in creating intuitive user experiences and visually appealing
@@ -46,8 +47,10 @@ import { Icon } from "astro-icon/components";
   }
 
   .hero-title {
-    font-size: clamp(2rem, 5vw, 2.5rem);
-    margin: 0.5rem 0;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 
   .hero-subtitle {
@@ -55,6 +58,9 @@ import { Icon } from "astro-icon/components";
     color: var(--subtitle);
     max-width: 428px;
     font-weight: 500;
+  }
+  .label-text {
+    max-width: 428px;
   }
 
   .description {
