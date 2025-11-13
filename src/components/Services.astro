@@ -1,0 +1,156 @@
+---
+import Subtitle from "./Subtitle.astro";
+
+import Label from "./Label.astro";
+
+import { Icon } from "astro-icon/components";
+---
+
+<section id="services">
+  <div class="container">
+    <Subtitle subtitle="Services" />
+    <div class="services-grid">
+      <div class="service-icons">
+        <div class="service-icon">
+          <span class="icon-wrapper">
+            <Icon name="design" />
+          </span>
+
+          <div class="icon-text">
+            <h3>Responsive Web Design</h3>
+            <p>Design adaptable websites for all devices.</p>
+          </div>
+        </div>
+
+        <div class="service-icon">
+          <span class="icon-wrapper">
+            <Icon name="dashboard" />
+          </span>
+
+          <div class="icon-text">
+            <h3>Dashboard Design</h3>
+            <p>Create intuitive and user-friendly dashboards.</p>
+          </div>
+        </div>
+
+        <div class="service-icon">
+          <span class="icon-wrapper">
+            <Icon name="mobile" />
+          </span>
+
+          <div class="icon-text">
+            <h3>Mobile app Design</h3>
+            <p>Develop engaging and functional mobile applications.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-description">
+        <Label label="My Awesome Service" />
+
+        <p>
+          I provide services that enhance your digital presence. From responsive
+          web design, complex dashboards to intuitive mobile apps. Turn your
+          ideas into reality with limitless creativity.
+        </p>
+
+        <div class="badges-container">
+          <span class="badge">
+            <span class="number">15+</span>
+            <span class="label">Project complete</span>
+          </span>
+
+          <span class="badge">
+            <span class="number">2+</span>
+            <span class="label">Years of experience</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .service-icon {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    .icon-wrapper {
+      width: 3rem;
+      height: 3rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--foreground);
+      color: var(--background);
+      border-radius: 50%;
+    }
+
+    [data-icon] {
+      font-size: 1.3em;
+    }
+
+    .icon-text h3 {
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .icon-text p {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      color: var(--secondary);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+
+    .service-icons,
+    .service-description {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .service-description p {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.75rem;
+      color: var(--secondary);
+    }
+
+    .badges-container {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .badge {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .badge .number {
+      font-size: 35px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+  </style>
+</section>

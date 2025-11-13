@@ -2,10 +2,13 @@
   --foreground: hsl(73, 90%, 4%);
   --background: hsl(88, 100%, 97%);
   --primary: hsl(81, 99%, 61%);
+  --secondary: hsl(0, 0%, 37%);
   --subtitle: hsl(0, 0%, 40%);
   --spacing-section: 80px;
   --spacing-grid: 40px;
   --border-radius: 12px;
+  --scroll-offset: 6rem;
+  --color-card: hsl(88, 100%, 100%);
 }
 
 *,
@@ -20,6 +23,12 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  scroll-behavior: smooth;
+  scroll-padding-block: var(--scroll-offset);
+}
+
+[id] {
+  scroll-margin-block: var(--scroll-offset);
 }
 
 body,
